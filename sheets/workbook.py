@@ -12,6 +12,11 @@ COLS = list(ALPH) + [
     for b in ALPH
 ]
 
+class TableConfig:
+    MAJOR_DISPLAY_ROW = 1
+    MINOR_DISPLAY_ROW = 2
+    COLUMN_NAME_ROW = 3
+    VALUES_BEGIN_ROW = 4
 
 class Workbook(ABC):
 
@@ -146,16 +151,22 @@ class ExcelBook(Workbook):
             self.create_worksheet(worksheet_name_or_id)
 
     def row_values(self, row_idx: int):
-        return [
+        vals = [
             cell.value
             for cell in self.worksheet[str(row_idx)]
         ]
+        while vals and vals[-1] is None:
+            vals.pop()
+        return vals
 
     def col_values(self, col_idx: int):
-        return [
+        vals = [
             cell.value
             for cell in self.worksheet[COLS[col_idx-1]]
         ]
+        while vals and vals[-1] is None:
+            vals.pop()
+        return vals
 
     def update_values(self, row_start_idx: int, row_end_idx: int, col_start_idx: int, col_end_idx: int, values: list[list[Any]]):
         for i, row in enumerate(range(row_start_idx+1, row_end_idx+2)):
