@@ -1,13 +1,14 @@
 steps:
-- type: download_file
-  source: "{ secrets.2022_NOV_MARK_SHEET }"
-  dest: data/mark_sheet.xlsx
-- type: block_file
-  message: "Download Ed results: https://edstem.org/au/courses/10137/lessons/29853/slides/210596/submissions?u=186341&s=21738662 to data/ed.csv"
+- type: require
+  wait_message: "Download mark sheet: {secrets[2022_NOV_MARK_SHEET]} to data/mark_sheet.xlsx"
+  path: data/mark_sheet.xlsx
+  lifetime: 24
+- type: require
+  wait_message: "Download Ed results: https://edstem.org/au/courses/10137/lessons/29853/slides/210596/submissions?u=186341&s=21738662 to data/ed.csv"
   path: data/ed.csv
   lifetime: 24
-- type: block_dir
-  message: "Download interview sheets: { secrets.2022_NOV_A2_INT_SHEETS } to data/AU and data/MA"
+- type: require
+  wait_message: "Download interview sheets: {secrets[2022_NOV_A2_INT_SHEETS]} to data/AU and data/MA"
   path: data/AU
   lifetime: 24
 - type: sheet
@@ -55,7 +56,7 @@ steps:
     interview:
       type: MultiLookup
       display: Interview
-      path: data/AU/1008/\{ID[Student ID]\}.xlsx
+      path: data/AU/1008/{{id[Student ID]}}.xlsx
       items:
         - source: "Interview Marks!G9"
           dest: "Interview Mark"
@@ -68,6 +69,6 @@ steps:
         - source: "gen_feedback_2022_nov_a2(O)"
           dest:   "Feedback"
 - type: command
-  command: python -m scripts.xml_export data/mark_sheet.xlsx 'A2 Marks' { secrets.2022_NOV_A2_ID } data/grades.xml
-- type: block_confirm
-  message: "Import grades from data/grades.xml to { secrets.2022_NOV_XML_UPDATE }"
+  command: python -m scripts.xml_export data/mark_sheet.xlsx "A2 Marks" {secrets[2022_NOV_A2_ID]} data/grades.xml
+- type: confirm
+  message: "Import grades from data/grades.xml to {secrets[2022_NOV_XML_UPDATE]}"
