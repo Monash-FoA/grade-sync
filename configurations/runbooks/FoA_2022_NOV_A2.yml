@@ -66,7 +66,7 @@ steps:
       items:
         - source: "float(ed['ed_mark'] or 0) + float(interview['Interview Mark'] or 0)"
           dest:   "Total Mark"
-        - source: "gen_feedback_2022_nov_a2(O)"
+        - source: "utils.gen_feedback_2022_nov_a2(O)"
           dest:   "Feedback"
 - type: command
   command: python -m scripts.xml_export data/mark_sheet.xlsx "A2 Marks" {secrets[2022_NOV_A2_ID]} data/grades.xml
