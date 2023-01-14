@@ -49,7 +49,7 @@ steps:
       type: Ed
       display: Ed
       path: data/ed.csv
-      criterion: configuration/ed/criteria/2022/NOV/A2.json
+      criterion: configurations/ed/criteria/2022/NOV/A2.json
       sheet_lookup: Email
       grade_lookup: email
       group_mark_lookup: Group Member Marked

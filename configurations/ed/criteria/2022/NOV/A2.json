@@ -1,0 +1,572 @@
+[
+	{
+		"name": "Tasks 1 & 2 - Quality",
+		"levels": [
+			{
+				"description": "No mistakes. Great quality overall.",
+				"mark": "1"
+			},
+			{
+				"description": "At most 1 mistake. Code quality is passable.",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Tasks 1 & 2 - Documentation",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall",
+				"mark": "1"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Tasks 1 & 2 - Testing",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "1"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Tasks 1 & 2 - Correctness",
+		"levels": [
+			{
+				"description": "Passes all tests as given by the instructor",
+				"mark": "2"
+			},
+			{
+				"description": "Fails at least one test input given by the instructor",
+				"mark": "1.5"
+			},
+			{
+				"description": "Able to pass basic and edge test cases",
+				"mark": "1"
+			},
+			{
+				"description": "Able to pass basic test cases",
+				"mark": "0.5"
+			},
+			{
+				"description": "Unable to pass any test cases",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Quality",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "5"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "3.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable",
+				"mark": "2"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "1"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Documentation",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "3"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Testing",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Correctness",
+		"levels": [
+			{
+				"description": "Passes all tests as given by the instructor",
+				"mark": "5"
+			},
+			{
+				"description": "Fails at least one test input given by the instructor",
+				"mark": "3.5"
+			},
+			{
+				"description": "Able to pass basic and edge test cases",
+				"mark": "2"
+			},
+			{
+				"description": "Able to pass basic test cases",
+				"mark": "1"
+			},
+			{
+				"description": "Unable to pass any test cases",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Quality",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "4"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "2.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable",
+				"mark": "1.5"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Documentation",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "1.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Testing",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Correctness",
+		"levels": [
+			{
+				"description": "Passes all tests as given by the instructor",
+				"mark": "2"
+			},
+			{
+				"description": "Fails at least one test input given by the instructor",
+				"mark": "1.5"
+			},
+			{
+				"description": "Able to pass basic and edge test cases",
+				"mark": "1"
+			},
+			{
+				"description": "Able to pass basic test cases",
+				"mark": "0.5"
+			},
+			{
+				"description": "Unable to pass any test cases",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Quality",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "4"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "2.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable",
+				"mark": "1.5"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Documentation",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "1.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Testing",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Correctness",
+		"levels": [
+			{
+				"description": "Passes all tests as given by the instructor",
+				"mark": "2"
+			},
+			{
+				"description": "Fails at least one test input given by the instructor",
+				"mark": "1.5"
+			},
+			{
+				"description": "Able to pass basic and edge test cases",
+				"mark": "1"
+			},
+			{
+				"description": "Able to pass basic test cases",
+				"mark": "0.5"
+			},
+			{
+				"description": "Unable to pass any test cases",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Quality",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "4"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "2.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable",
+				"mark": "1.5"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Documentation",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "No major errors and at most a few minor mistakes. Good code quality overall.",
+				"mark": "1.5"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Multiple major errors, quality of code is poor (instructions likely not obeyed).",
+				"mark": "0.5"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Testing",
+		"levels": [
+			{
+				"description": "At most 1 minor mistake. Great quality overall.",
+				"mark": "2"
+			},
+			{
+				"description": "At most 1 major error or many minor mistakes. Code quality is passable.",
+				"mark": "1"
+			},
+			{
+				"description": "Many major mistakes / extremely low quality.",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Correctness",
+		"levels": [
+			{
+				"description": "Passes all tests as given by the instructor",
+				"mark": "2"
+			},
+			{
+				"description": "Fails at least one test input given by the instructor",
+				"mark": "1.5"
+			},
+			{
+				"description": "Able to pass basic and edge test cases",
+				"mark": "1"
+			},
+			{
+				"description": "Able to pass basic test cases",
+				"mark": "0.5"
+			},
+			{
+				"description": "Unable to pass any test cases",
+				"mark": "0"
+			}
+		]
+	},
+  {
+		"name": "Late Penalty",
+		"levels": [
+			{
+				"description": "0 Days Late",
+				"mark": "0"
+			},
+			{
+				"description": "1 Day Late",
+				"mark": "-5"
+			},
+			{
+				"description": "2 Days Late",
+				"mark": "-10"
+			},
+			{
+				"description": "3 Days Late",
+				"mark": "-15"
+			},
+			{
+				"description": "4 Days Late",
+				"mark": "-20"
+			},
+			{
+				"description": "5 Days Late",
+				"mark": "-25"
+			},
+			{
+				"description": "6 Days Late",
+				"mark": "-30"
+			},
+			{
+				"description": "7 Days Late",
+				"mark": "-35"
+			}
+		]
+	},
+	{
+		"name": "Adjustment",
+		"levels": [
+			{
+				"description": "+5",
+				"mark": "5"
+			},
+			{
+				"description": "+4.5",
+				"mark": "4.5"
+			},
+			{
+				"description": "+4",
+				"mark": "4"
+			},
+			{
+				"description": "+3.5",
+				"mark": "3.5"
+			},
+			{
+				"description": "+3",
+				"mark": "3"
+			},
+			{
+				"description": "+2.5",
+				"mark": "2.5"
+			},
+			{
+				"description": "+2",
+				"mark": "2"
+			},
+			{
+				"description": "+1.5",
+				"mark": "1.5"
+			},
+			{
+				"description": "+1",
+				"mark": "1"
+			},
+			{
+				"description": "+0.5",
+				"mark": "0.5"
+			},
+			{
+				"description": "+0",
+				"mark": "0"
+			},
+			{
+				"description": "-0.5",
+				"mark": "-0.5"
+			},
+			{
+				"description": "-1",
+				"mark": "-1"
+			},
+			{
+				"description": "-1.5",
+				"mark": "-1.5"
+			},
+			{
+				"description": "-2",
+				"mark": "-2"
+			},
+			{
+				"description": "-2.5",
+				"mark": "-2.5"
+			},
+			{
+				"description": "-3",
+				"mark": "-3"
+			},
+			{
+				"description": "-3.5",
+				"mark": "-3.5"
+			},
+			{
+				"description": "-4",
+				"mark": "-4"
+			},
+			{
+				"description": "-4.5",
+				"mark": "-4.5"
+			},
+			{
+				"description": "-5",
+				"mark": "-5"
+			}
+		]
+	}
+]

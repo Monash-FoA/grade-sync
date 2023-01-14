@@ -1,0 +1,82 @@
+import csv
+import json
+
+from sheets.modules.base import MapperSection, register
+from sheets.workbook import Workbook, TableConfig
+
+@register("Ed")
+class EdSection(MapperSection):
+
+    def __init__(self, section_data: dict, id_data: str, table_config: TableConfig) -> None:
+        super().__init__(section_data, id_data, table_config)
+        with open(section_data["criterion"], "r") as f:
+            self.criterion_data = json.load(f)
+        with open(section_data["path"], "r", encoding="utf-8-sig") as csvfile:
+            reader = csv.reader(csvfile)
+            self.source_data = list(reader)
+            self.csv_headers = self.source_data[0]
+
+    def get_headers(self):
+        return [
+            o["name"] for o in self.criterion_data
+        ] + ["feedback_text", "ed_mark"]
+
+    def get_data(self, map_sheet: Workbook, id_values: list, sections: dict):
+        lookup_col = self.csv_headers.index(self.section_data["grade_lookup"])
+        mark_mapping = {
+            o["name"]: self.csv_headers.index(o["name"])
+            for o in self.criterion_data
+        }
+        feedback_index = self.csv_headers.index("feedback text")
+
+        data = {}
+
+        for row in self.source_data[1:]:
+            data[row[lookup_col]] = {}
+            for map_name, map_index in mark_mapping.items():
+                data[row[lookup_col]][map_name] = row[map_index]
+                data[row[lookup_col]][map_name+"__value"] = float(row[map_index+1] or "0")
+            data[row[lookup_col]]["ed_mark__value"] = sum(
+                item
+                for key, item in data[row[lookup_col]].items()
+                if key.endswith("__value")
+            )
+            data[row[lookup_col]]["feedback_text__value"] = row[feedback_index]
+
+
+        # Group Assignments
+        if self.section_data.get("group_mark_lookup", None):
+            cur_header = map_sheet.row_values(self.table_config.COLUMN_NAME_ROW)
+            row_vals = map_sheet.get_values(self.table_config.VALUES_BEGIN_ROW-1, self.table_config.VALUES_BEGIN_ROW+len(id_values)-2, 0, self.col_index-1)
+            grade_lookup_col = cur_header.index(self.section_data["group_mark_lookup"])
+            sheet_lookup_col = cur_header.index(self.section_data["sheet_lookup"])
+
+            for row in row_vals:
+                sheet = row[sheet_lookup_col]
+                grade_look = row[grade_lookup_col]
+                if grade_look:
+                    data[sheet] = data[grade_look]
+
+        return data
+
+    def update_data(self, map_sheet: Workbook, col_index: int, id_values: list, sections: dict):
+        cur_header = map_sheet.row_values(self.table_config.COLUMN_NAME_ROW)
+        data = [
+            ["" for _ in range(len(self.get_headers()))]
+            for _ in range(len(
+                    map_sheet
+                    .col_values(cur_header.index(self.section_data["sheet_lookup"])+1)
+                    [int(self.table_config.COLUMN_NAME_ROW):]
+                )
+            )
+        ]
+
+        for i, look in enumerate(
+            map_sheet
+            .col_values(cur_header.index(self.section_data["sheet_lookup"])+1)
+            [int(self.table_config.COLUMN_NAME_ROW):]
+        ):
+            for j, header in enumerate(self.get_headers()):
+                data[i][j] = self.data[look][header+"__value"]
+
+        map_sheet.update_values(self.table_config.VALUES_BEGIN_ROW-1, self.table_config.VALUES_BEGIN_ROW+len(data)-2, col_index, col_index+len(self.get_headers())-1, data)
