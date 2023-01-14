@@ -1,10 +1,13 @@
 from sheets.workbook import Workbook, TableConfig
 from sheets.modules import SECTIONS
+from sheets.util import COMP_CONFIG
 
 
 def create_sheet(map_info, config=TableConfig()):
     sheet = Workbook.from_options(map_info)
     sheet.clear()
+
+    COMP_CONFIG.compute_scripts = map_info.get("compute_scripts", ["scripts/compute/utils.py"])
 
     # This variable keeps track of what column we are currently writing to.
     col_index = 0
