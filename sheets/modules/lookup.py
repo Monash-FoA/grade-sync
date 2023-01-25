@@ -1,3 +1,5 @@
+from copy import copy
+
 from sheets.modules.base import MapperSection, register
 from sheets.workbook import Workbook, TableConfig
 
@@ -6,12 +8,12 @@ class SheetLookup(MapperSection):
 
     def __init__(self, section_data: dict, id_data: str, table_config: TableConfig) -> None:
         super().__init__(section_data, id_data, table_config)
-        self.workbook = Workbook.from_options(section_data)
-        self.header_row = section_data["header_row"]
-        self.header_vals = self.workbook.row_values(self.header_row)
+        self.workbooks = {}
+        self.active_workbook = self.workbooks[section_data["sheet"]] = Workbook.from_options(section_data)
         self.sheet_lookup = section_data.get("sheet_lookup", id_data["dest"])
-        self.ref_lookup = section_data.get("sheet_lookup", id_data["source"])
+        self.ref_lookup = section_data.get("ref_lookup", id_data["source"])
         self.items = section_data["items"]
+
 
     def get_headers(self):
         return [
@@ -27,51 +29,44 @@ class SheetLookup(MapperSection):
             for _ in range(len(lookup_vals))
         ]
         for y, item in enumerate(self.items):
-            sheet_lookup = item.get("sheet_lookup", self.sheet_lookup)
-            ref_lookup = item.get("ref_lookup", self.ref_lookup)
-            source_col = self.header_vals.index(item["source"])
-            sheet_lookup_col = [
-                (v, i+1)
-                for i, v in
-                enumerate(
-                    map_sheet
-                        .col_values(sheet_header_row.index(sheet_lookup)+1)
-                        [int(self.table_config.COLUMN_NAME_ROW):]
-                )
-            ]
-            sheet_lookup_col.sort()
+            for j, val in enumerate(self.get_col_data(y, item, map_sheet)):
+                data[j][y] = val
+        return data
 
-            ref_lookup_col = [
-                (v, i+1, y)
-                for i, (v, y) in
-                enumerate(
-                    # Select all column values from the reference col in sheet.
-                    zip(
-                        self.workbook
-                            .col_values(self.header_vals.index(ref_lookup)+1)
-                            [int(self.header_row):],
-                        self.workbook
-                            .col_values(source_col+1)
-                            [int(self.header_row):]
-                    )
-                )
-            ]
-            ref_lookup_col.sort()
+    def prepare_active_workbook(self, item):
+        sheet = item.get("sheet", self.section_data["sheet"])
+        if sheet not in self.workbooks:
+            new_options = copy(self.section_data)
+            new_options["sheet"] = sheet
+            self.workbooks[sheet] = Workbook.from_options(new_options)
+        self.active_workbook = self.workbooks[sheet]
 
-            # Now that these are sorted by value, we can efficiently match them up.
-            cur_ref_lookup = 0
-            for v, i in sheet_lookup_col:
-                while cur_ref_lookup < len(ref_lookup_col) and ref_lookup_col[cur_ref_lookup][0] < v:
-                    cur_ref_lookup += 1
-                if cur_ref_lookup >= len(ref_lookup_col):
-                    break
-                if ref_lookup_col[cur_ref_lookup][0] > v:
-                    # No matching entry.
-                    continue
-                # We found a match!
-                # Read from source sheet.
-                data[i-1][y] = ref_lookup_col[cur_ref_lookup][2]
+    def get_col_data(self, item_index, item, map_sheet):
+        sheet_header_row = map_sheet.row_values(self.table_config.COLUMN_NAME_ROW)
+        header_row = item.get("header_row", self.section_data["header_row"])
+        header_vals = self.active_workbook.row_values(header_row)
+
+        sheet_lookup = item.get("sheet_lookup", self.sheet_lookup)
+        ref_lookup = item.get("ref_lookup", self.ref_lookup)
+        self.prepare_active_workbook(item)
+        lookup_col_values = self.active_workbook.col_values(header_vals.index(ref_lookup)+1)[int(header_row):]
+        read_col_values = self.active_workbook.col_values(header_vals.index(item["source"])+1)[int(header_row):]
+
+        lookup_map = {
+            l: r
+            for l, r in zip(lookup_col_values, read_col_values)
+        }
+
+        data = []
+        for v in (
+            map_sheet
+            .col_values(sheet_header_row.index(sheet_lookup)+1)
+            [int(self.table_config.COLUMN_NAME_ROW):]
+        ):
+            data.append(lookup_map.get(v, None))
         return data
 
     def update_data(self, map_sheet: Workbook, col_index: int, id_values: list, sections: list):
         map_sheet.update_values(self.table_config.VALUES_BEGIN_ROW-1, self.table_config.VALUES_BEGIN_ROW+len(id_values)-2, col_index, col_index + len(self.get_headers())-1, self.data)
+        for workbook in self.workbooks.values():
+            workbook.close()
