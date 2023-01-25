@@ -8,6 +8,7 @@ SECTIONS: dict[str, MapperSection] = {}
 def register(name):
     def func(klass):
         SECTIONS[name] = klass
+        return klass
     return func
 
 class MapperSection(ABC):
