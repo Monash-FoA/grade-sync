@@ -1,0 +1,547 @@
+[
+	{
+		"name": "Hash Tables - Hash Function",
+		"levels": [
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Hash Tables - Analysis",
+		"levels": [
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Hash Tables - Correctness",
+		"levels": [
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "BSTs & AVLs - get_minimal & get_successor",
+		"levels": [
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "BSTs & AVLs - insert, delete, balance, height",
+		"levels": [
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "BSTs & AVLs - range_between",
+		"levels": [
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Game Design Decisions - Trader ADT choices",
+		"levels": [
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Game Design Decisions - select_food_and_caves",
+		"levels": [
+			{
+				"description": "",
+				"mark": "10"
+			},
+			{
+				"description": "",
+				"mark": "9.5"
+			},
+			{
+				"description": "",
+				"mark": "9"
+			},
+			{
+				"description": "",
+				"mark": "8.5"
+			},
+			{
+				"description": "",
+				"mark": "8"
+			},
+			{
+				"description": "",
+				"mark": "7.5"
+			},
+			{
+				"description": "",
+				"mark": "7"
+			},
+			{
+				"description": "",
+				"mark": "6.5"
+			},
+			{
+				"description": "",
+				"mark": "6"
+			},
+			{
+				"description": "",
+				"mark": "5.5"
+			},
+			{
+				"description": "",
+				"mark": "5"
+			},
+			{
+				"description": "",
+				"mark": "4.5"
+			},
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Game Design Decisions - select_for_players",
+		"levels": [
+			{
+				"description": "",
+				"mark": "5"
+			},
+			{
+				"description": "",
+				"mark": "4.5"
+			},
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Game Design Decisions - Misc Correctness",
+		"levels": [
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Documentation - Strategy",
+		"levels": [
+			{
+				"description": "",
+				"mark": "5"
+			},
+			{
+				"description": "",
+				"mark": "4.5"
+			},
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Documentation - General",
+		"levels": [
+			{
+				"description": "",
+				"mark": "5"
+			},
+			{
+				"description": "",
+				"mark": "4.5"
+			},
+			{
+				"description": "",
+				"mark": "4"
+			},
+			{
+				"description": "",
+				"mark": "3.5"
+			},
+			{
+				"description": "",
+				"mark": "3"
+			},
+			{
+				"description": "",
+				"mark": "2.5"
+			},
+			{
+				"description": "",
+				"mark": "2"
+			},
+			{
+				"description": "",
+				"mark": "1.5"
+			},
+			{
+				"description": "",
+				"mark": "1"
+			},
+			{
+				"description": "",
+				"mark": "0.5"
+			},
+			{
+				"description": "",
+				"mark": "0"
+			}
+		]
+	},
+	{
+		"name": "Late Penalty",
+		"levels": [
+			{
+				"description": "",
+				"mark": "0"
+			},
+			{
+				"description": "",
+				"mark": "-5"
+			},
+			{
+				"description": "",
+				"mark": "-10"
+			},
+			{
+				"description": "",
+				"mark": "-15"
+			},
+			{
+				"description": "",
+				"mark": "-20"
+			},
+			{
+				"description": "",
+				"mark": "-25"
+			},
+			{
+				"description": "",
+				"mark": "-30"
+			},
+			{
+				"description": "",
+				"mark": "-35"
+			}
+		]
+	}
+]
