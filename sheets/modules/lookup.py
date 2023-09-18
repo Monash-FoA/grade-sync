@@ -56,6 +56,20 @@ class SheetLookup(MapperSection):
             l: r
             for l, r in zip(lookup_col_values, read_col_values)
         }
+        # Keys are either ints or strings
+        # For some reason once in a blue moon the type comes through wrong.
+        # Find outliers and fix them.
+        int_types = len([k for k in lookup_map.keys() if isinstance(k, int)])
+        str_types = len([k for k in lookup_map.keys() if isinstance(k, str)])
+        convert = None
+        if int_types > len(lookup_map.keys()) / 2:
+            convert = int
+        elif str_types > len(lookup_map.keys()) / 2:
+            convert = str
+
+        for key in list(lookup_map.keys()):
+            if convert is not None and not isinstance(key, convert):
+                lookup_map[convert(key)] = lookup_map[key]
 
         data = []
         for v in (
@@ -63,7 +77,7 @@ class SheetLookup(MapperSection):
             .col_values(sheet_header_row.index(sheet_lookup)+1)
             [int(self.table_config.COLUMN_NAME_ROW):]
         ):
-            data.append(lookup_map.get(v, None))
+            data.append(lookup_map.get(convert(v), None))
         return data
 
     def update_data(self, map_sheet: Workbook, col_index: int, id_values: list, sections: list):

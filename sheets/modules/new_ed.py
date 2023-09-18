@@ -4,8 +4,8 @@ import json
 from sheets.modules.base import MapperSection, register
 from sheets.workbook import Workbook, TableConfig
 
-@register("Ed")
-class EdSection(MapperSection):
+@register("NewEd")
+class NewEdSection(MapperSection):
 
     def __init__(self, section_data: dict, id_data: str, table_config: TableConfig) -> None:
         super().__init__(section_data, id_data, table_config)
@@ -14,7 +14,8 @@ class EdSection(MapperSection):
         with open(section_data["path"], "r", encoding="utf-8-sig") as csvfile:
             reader = csv.reader(csvfile)
             self.source_data = list(reader)
-            self.csv_headers = self.source_data[0]
+            self.test_name_headers = self.source_data[0]
+            self.csv_headers = self.source_data[1]
 
     def get_headers(self):
         return [
@@ -24,26 +25,24 @@ class EdSection(MapperSection):
     def get_data(self, map_sheet: Workbook, id_values: list, sections: dict):
         lookup_col = self.csv_headers.index(self.section_data["grade_lookup"])
         mark_mapping = {
-            o["name"]: self.csv_headers.index(o["name"])
+            o["name"]: self.test_name_headers.index(o["name"]) + 1
             for o in self.criterion_data
         }
-        feedback_index = self.csv_headers.index("feedback text")
-        submitted_index = self.csv_headers.index("submitted")
+        feedback_index = self.csv_headers.index("FEEDBACK COMMENT")
+        submitted_index = self.csv_headers.index("SUBMITTED")
 
         data = {}
 
-        for row in self.source_data[1:]:
+        for row in self.source_data[2:]:
             data[row[lookup_col]] = {}
             for map_name, map_index in mark_mapping.items():
                 data[row[lookup_col]][map_name] = row[map_index]
-                data[row[lookup_col]][map_name+"__value"] = float(row[map_index+1] or "0")
-            data[row[lookup_col]]["ed_mark__value"] = sum(
-                item
+            data[row[lookup_col]]["ed_mark"] = sum(
+                float(item or '0')
                 for key, item in data[row[lookup_col]].items()
-                if key.endswith("__value")
             )
-            data[row[lookup_col]]["feedback_text__value"] = row[feedback_index]
-            data[row[lookup_col]]["submitted__value"] = row[submitted_index]
+            data[row[lookup_col]]["feedback_text"] = row[feedback_index]
+            data[row[lookup_col]]["submitted"] = row[submitted_index]
 
 
         # Group Assignments
@@ -91,15 +90,15 @@ class EdSection(MapperSection):
                 best_submitted = False
                 best_info = None
                 for email in email_set:
-                    total = self.data[email]["ed_mark__value"] 
+                    total = self.data[email]["ed_mark"]
                     if (
-                        (not best_submitted and self.data[email]["submitted__value"]) or 
+                        (not best_submitted and self.data[email]["submitted"]) or
                         total > best
                     ):
                         best_info = email
                         best = total
-                        best_submitted = self.data[email]["submitted__value"]
-                self.data[best_info]["marked_user__value"] = best_info
+                        best_submitted = self.data[email]["submitted"]
+                self.data[best_info]["marked_user"] = best_info
                 for email in email_set:
                     self.data[email] = self.data[best_info]
 
@@ -109,6 +108,10 @@ class EdSection(MapperSection):
             [int(self.table_config.COLUMN_NAME_ROW):]
         ):
             for j, header in enumerate(self.get_headers()):
-                data[i][j] = self.data[look][header+"__value"]
+                try:
+                    data[i][j] = self.data[look][header]
+                except:
+                    # No student data
+                    pass
 
         map_sheet.update_values(self.table_config.VALUES_BEGIN_ROW-1, self.table_config.VALUES_BEGIN_ROW+len(data)-2, col_index, col_index+len(self.get_headers())-1, data)

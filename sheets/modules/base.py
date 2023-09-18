@@ -31,9 +31,11 @@ class MapperSection(ABC):
 
     def action(self, map_sheet: Workbook, col_index: int, id_values: list, sections: dict):
         headers = self.get_headers()
+        display = [self.section_data["display"] for _ in range(len(headers))]
         self.col_index = col_index
         self.data = self.get_data(map_sheet, id_values, sections)
         map_sheet.update_values(self.table_config.COLUMN_NAME_ROW-1, self.table_config.COLUMN_NAME_ROW-1, col_index, col_index + len(headers)-1, [headers])
+        map_sheet.update_values(self.table_config.DISPLAY_ROW-1, self.table_config.DISPLAY_ROW-1, col_index, col_index + len(display)-1, [display])
         self.update_data(map_sheet, col_index, id_values, sections)
         return col_index + len(headers)
 

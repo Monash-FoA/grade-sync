@@ -6,3 +6,4 @@ from .ff import FFLookup
 from .id import IDSection
 from .lookup import SheetLookup
 from .multi_lookup import MultiLookup
+from .new_ed import NewEdSection

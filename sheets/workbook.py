@@ -13,10 +13,9 @@ COLS = list(ALPH) + [
 ]
 
 class TableConfig:
-    MAJOR_DISPLAY_ROW = 1
-    MINOR_DISPLAY_ROW = 2
-    COLUMN_NAME_ROW = 3
-    VALUES_BEGIN_ROW = 4
+    DISPLAY_ROW = 1
+    COLUMN_NAME_ROW = 2
+    VALUES_BEGIN_ROW = 3
 
 class Workbook(ABC):
 

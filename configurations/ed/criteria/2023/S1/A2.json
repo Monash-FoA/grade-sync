@@ -1,0 +1,613 @@
+[
+	{
+		"name": "Task 1 - Tests",
+		"levels": [
+			{
+				"mark": "4",
+				"description": ""
+			},
+			{
+				"mark": "3.5",
+				"description": ""
+			},
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 2 - Approach",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 2 - Tests",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 2 - Complexity",
+		"levels": [
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Approach",
+		"levels": [
+			{
+				"mark": "4",
+				"description": ""
+			},
+			{
+				"mark": "3.5",
+				"description": ""
+			},
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Tests",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 3 - Complexity",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Approach",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Tests",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 4 - Complexity",
+		"levels": [
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Approach",
+		"levels": [
+			{
+				"mark": "4",
+				"description": ""
+			},
+			{
+				"mark": "3.5",
+				"description": ""
+			},
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Tests",
+		"levels": [
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 5 - Complexity",
+		"levels": [
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Approach",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Tests",
+		"levels": [
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 6 - Complexity",
+		"levels": [
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 7 - Approach",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "Task 7 - Tests",
+		"levels": [
+			{
+				"mark": "3",
+				"description": ""
+			},
+			{
+				"mark": "2.5",
+				"description": ""
+			},
+			{
+				"mark": "2",
+				"description": ""
+			},
+			{
+				"mark": "1.5",
+				"description": ""
+			},
+			{
+				"mark": "1",
+				"description": ""
+			},
+			{
+				"mark": "0.5",
+				"description": ""
+			},
+			{
+				"mark": "0",
+				"description": ""
+			}
+		]
+	},
+    {
+		"name": "Formatting Penalty",
+		"levels": [
+			{
+				"mark": "0",
+				"description": ""
+			},
+			{
+				"mark": "-0.5",
+				"description": ""
+			},
+			{
+				"mark": "-1",
+				"description": ""
+			},
+			{
+				"mark": "-1.5",
+				"description": ""
+			},
+			{
+				"mark": "-2",
+				"description": ""
+			},
+			{
+				"mark": "-2.5",
+				"description": ""
+			},
+			{
+				"mark": "-3",
+				"description": ""
+			},
+            {
+				"mark": "-3.5",
+				"description": ""
+			},
+            {
+				"mark": "-4",
+				"description": ""
+			},
+            {
+				"mark": "-4.5",
+				"description": ""
+			},
+            {
+				"mark": "-5",
+				"description": ""
+			}
+		]
+	}
+]

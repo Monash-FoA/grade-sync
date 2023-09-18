@@ -20,10 +20,10 @@ def main():
         "path": args.input_path,
         "sheet": args.input_sheet,
     })
-    headers = wb.row_values(3)
-    student_ids = wb.col_values(headers.index(args.id)+1)[3:]
-    marks = wb.col_values(headers.index(args.mark)+1)[3:]
-    feedback = wb.col_values(headers.index(args.feedback)+1)[3:]
+    headers = wb.row_values(2)
+    student_ids = wb.col_values(headers.index(args.id)+1)[2:]
+    marks = wb.col_values(headers.index(args.mark)+1)[2:]
+    feedback = wb.col_values(headers.index(args.feedback)+1)[2:]
 
     results = ET.Element("results")
 
