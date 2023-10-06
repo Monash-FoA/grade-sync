@@ -587,3 +587,49 @@ def percent_marked_2023_s2_a1_ed(O):
         if O["ed"][key] not in [""]:
             non_zero_found += 1
     return non_zero_found / len(keys) * 100
+
+# Interview stuff
+def gen_mark_2023_s2_a12(O):
+    marks = [
+        float(O["interview"][f"Q{x} Mark"] or 0)
+        for x in range(1, 7)
+    ]
+    feedback = [
+        O["interview"][f"Q{x} Feedback"]
+        for x in range(1, 7)
+    ]
+    mult = float(O["interview"]["Multiplier"] or 1)
+
+    total_mark = sum(marks) - min(marks)
+
+    return total_mark * mult
+
+def plain_text(t:str):
+    return (t or "")\
+        .replace("&#160;", "-")\
+        .replace("&amp;", "&")
+
+
+def gen_feedback_2023_s2_a12(O):
+    marks = [
+        float(O["interview"][f"Q{x} Mark"] or 0)
+        for x in range(1, 7)
+    ]
+    feedback = [
+        plain_text(O["interview"][f"Q{x} Feedback"])
+        for x in range(1, 7)
+    ]
+    responses = [
+        plain_text(O["interview"][f"Q{x} Response"])
+        for x in range(1, 7)
+    ]
+    mult = float(O["interview"]["Multiplier"] or 1)
+
+    ignoring_mult = sum(marks) - min(marks)
+    final_grade = gen_mark_2023_s2_a12(O)
+
+    question_text = "\n\n".join(f"Q{x}: {marks[x-1]}/10. Response: {responses[x-1]} Feedback: {feedback[x-1]}" for x in range(1, 7))
+
+    mult_text = f"Your final grade is {final_grade}/50" if mult == 1 else f"Your interview received a multipler of {mult}, so you actual final grade is {final_grade}/50"
+
+    return question_text + "\n\n" + mult_text

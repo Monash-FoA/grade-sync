@@ -53,6 +53,8 @@ def late_penalty_with_moodle_fuckery(O):
             moodle = due_date
         else:
             moodle = datetime.datetime.strptime(moodle, "%A, %d %B %Y, %I:%M %p")
+    elif type(moodle) == datetime.datetime:
+        pass
     else:
         moodle = due_date
 
