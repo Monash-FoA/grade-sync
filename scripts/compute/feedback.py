@@ -489,10 +489,11 @@ def account_for_late_penalty(O):
     total_mark = float(O["comp"]["Total Mark"])
     # This is out of 50, so scale to a percentage
     late_penalty = float(O["comp"]["late_penalty"]) * 2
+    ai_mult = float(O["override"]["AI Mult"] or "1")
     # academic_integrity = O["override"]["AI Case"]
     # if academic_integrity:
     #     return 0
-    return round(max(0, total_mark - late_penalty) / 2, 2)
+    return round(max(0, (total_mark - late_penalty)) * ai_mult / 2, 2)
 
 def gen_feedback_2023_s2_a1(O):
     ed_t1 = (
@@ -536,6 +537,7 @@ def gen_feedback_2023_s2_a1(O):
     feedback_text = O["ed"]["feedback_text"]
 
     academic_integrity = O["override"]["AI Case"]
+    ai_mult = float(O["override"]["AI Mult"] or "1")
 
     # This is out of 50, so scale to a percentage
     late_penalty = float(O["comp"]["late_penalty"]) * 2
@@ -554,8 +556,8 @@ So the final mark is {final_mark*2}% = {final_mark}/50
 Written Feedback: {feedback_text}
 """
 
-    if academic_integrity:
-        feedback = "Your submission is currently under suspicion for academic integrity, and is subject to change.\n\n" + feedback
+    if ai_mult != 1:
+        feedback = f"Your submission is recognised for academic integrity issues and so received a multiplier of {ai_mult}.\n\n" + feedback
 
     return feedback
 

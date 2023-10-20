@@ -54,6 +54,8 @@ steps:
           dest: "AI Case"
         - source: "A1 Moodle Due Date"
           dest: "Moodle Due Date"
+        - source: "Academic Integrity Multiplier"
+          dest: "AI Mult"
     ed:
       type: NewEd
       display: Ed
