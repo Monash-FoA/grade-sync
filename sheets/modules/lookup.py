@@ -66,6 +66,9 @@ class SheetLookup(MapperSection):
             convert = int
         elif str_types > len(lookup_map.keys()) / 2:
             convert = str
+        else:
+            # There is nothing in this column
+            convert = lambda x:x
 
         for key in list(lookup_map.keys()):
             if convert is not None and not isinstance(key, convert):

@@ -64,7 +64,7 @@ def late_penalty_with_moodle_fuckery(O):
 
 
     due_date = max(due_date, moodle)
-    # TODO: Fix
+    # TODO: Fix timezone
     due_date = f"{due_date.date().strftime('%a, %d %b %Y')}" + " 23:59:59 " + (("+1100" if due_date.month == 3 else "+1000") if O["info"]["Campus"] == "CL" else "+0800")
     dt_format = "%a, %d %b %Y %H:%M:%S %z"
 

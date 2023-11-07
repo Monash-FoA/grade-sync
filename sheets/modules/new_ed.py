@@ -90,14 +90,17 @@ class NewEdSection(MapperSection):
                 best_submitted = False
                 best_info = None
                 for email in email_set:
-                    total = self.data[email]["ed_mark"]
-                    if (
-                        (not best_submitted and self.data[email]["submitted"]) or
-                        total > best
-                    ):
-                        best_info = email
-                        best = total
-                        best_submitted = self.data[email]["submitted"]
+                    try:
+                        total = self.data[email]["ed_mark"]
+                        if (
+                            (not best_submitted and self.data[email]["submitted"]) or
+                            total > best
+                        ):
+                            best_info = email
+                            best = total
+                            best_submitted = self.data[email]["submitted"]
+                    except KeyError:
+                        continue
                 self.data[best_info]["marked_user"] = best_info
                 for email in email_set:
                     self.data[email] = self.data[best_info]

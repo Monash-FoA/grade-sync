@@ -635,3 +635,215 @@ def gen_feedback_2023_s2_a12(O):
     mult_text = f"Your final grade is {final_grade}/50" if mult == 1 else f"Your interview received a multipler of {mult}, so you actual final grade is {final_grade}/50"
 
     return question_text + "\n\n" + mult_text
+
+def gen_mark_2023_s2_a2(O):
+    ed_t1 = (
+        float(O["ed"]["Task 1 - Tests"] or 0)
+    )
+    ed_t2 = (
+        float(O["ed"]["Task 2 - Approach"] or 0) +
+        float(O["ed"]["Task 2 - Tests"] or 0) +
+        float(O["ed"]["Task 2 - Complexity"] or 0)
+    )
+    ed_t3 = (
+        float(O["ed"]["Task 3 - Approach"] or 0) +
+        float(O["ed"]["Task 3 - Tests"] or 0) +
+        float(O["ed"]["Task 3 - Complexity"] or 0)
+    )
+    ed_t4 = (
+        float(O["ed"]["Task 4 - Approach"] or 0) +
+        float(O["ed"]["Task 4 - Tests"] or 0) +
+        float(O["ed"]["Task 4 - Complexity"] or 0)
+    )
+    ed_t5 = (
+        float(O["ed"]["Task 5 - Approach"] or 0) +
+        float(O["ed"]["Task 5 - Tests"] or 0) +
+        float(O["ed"]["Task 5 - Complexity"] or 0)
+    )
+    ed_t6 = (
+        float(O["ed"]["Task 6 - Approach"] or 0) +
+        float(O["ed"]["Task 6 - Tests"] or 0) +
+        float(O["ed"]["Task 6 - Complexity"] or 0)
+    )
+    ed_t7 = (
+        float(O["ed"]["Task 7 - Approach"] or 0) +
+        float(O["ed"]["Task 7 - Tests"] or 0)
+    )
+    penalty = float(O["ed"]["Formatting Penalty"] or 0)
+
+    solo = O["override"]["A2 Solo"] or False
+
+    code_mark = ed_t1 + ed_t2 + ed_t3 + ed_t4 + ed_t5 + ed_t6 + ed_t7 + penalty
+    total = 50
+    if solo:
+        code_mark -= ed_t4 + ed_t6
+        total = 36
+
+    return f"{min(100, 100*code_mark/total):.2f}"
+
+def gen_feedback_2023_s2_a2(O):
+    ed_t1 = (
+        float(O["ed"]["Task 1 - Tests"] or 0)
+    )
+    ed_t2 = (
+        float(O["ed"]["Task 2 - Approach"] or 0) +
+        float(O["ed"]["Task 2 - Tests"] or 0) +
+        float(O["ed"]["Task 2 - Complexity"] or 0)
+    )
+    ed_t3 = (
+        float(O["ed"]["Task 3 - Approach"] or 0) +
+        float(O["ed"]["Task 3 - Tests"] or 0) +
+        float(O["ed"]["Task 3 - Complexity"] or 0)
+    )
+    ed_t4 = (
+        float(O["ed"]["Task 4 - Approach"] or 0) +
+        float(O["ed"]["Task 4 - Tests"] or 0) +
+        float(O["ed"]["Task 4 - Complexity"] or 0)
+    )
+    ed_t5 = (
+        float(O["ed"]["Task 5 - Approach"] or 0) +
+        float(O["ed"]["Task 5 - Tests"] or 0) +
+        float(O["ed"]["Task 5 - Complexity"] or 0)
+    )
+    ed_t6 = (
+        float(O["ed"]["Task 6 - Approach"] or 0) +
+        float(O["ed"]["Task 6 - Tests"] or 0) +
+        float(O["ed"]["Task 6 - Complexity"] or 0)
+    )
+    ed_t7 = (
+        float(O["ed"]["Task 7 - Approach"] or 0) +
+        float(O["ed"]["Task 7 - Tests"] or 0)
+    )
+    penalty = float(O["ed"]["Formatting Penalty"] or 0)
+
+    solo = O["override"]["A2 Solo"] or False
+
+    marker = O["info"]["Marker"]
+    unit_code = O["info"]["Unit Code"]
+    assert unit_code in ["FIT1008", "FIT2085", "FIT1054"]
+
+    total_mark = float(O["comp"]["Total Mark"])
+    submitted = O["ed"]["submitted"]
+    student_due_date = O["info"]["Due Date"]
+    final_mark = O["comp"]["actual_total_mark"]
+    feedback_text = O["ed"]["feedback_text"]
+    ai_mult = float(O["override"]["AI Mult"] or "1")
+
+    # This is out of 50, so scale to a percentage
+    late_penalty = float(O["comp"]["late_penalty"]) * 2
+
+    mark_string = f"{ed_t1}/4 + {ed_t2}/8 + {ed_t3}/10 + {ed_t4}/8 + {ed_t5}/8 + {ed_t6}/6 + {ed_t7}/6"
+    if solo:
+        mark_string = f"{ed_t1}/4 + {ed_t2}/8 + {ed_t3}/10 + {ed_t5}/8 + {ed_t7}/6"
+    if penalty:
+        mark_string = mark_string + f" {penalty}"
+
+    feedback = f"""\
+Marks: {mark_string} = {total_mark}%
+Your Marker was {marker}.
+You submitted on {submitted} with a due date of {student_due_date}, and so received a {late_penalty}% late penalty.
+So the final mark is {final_mark*2}% = {final_mark}/50
+
+Written Feedback: {feedback_text}
+"""
+
+    if ai_mult != 1:
+        feedback = f"Your submission received a multiplier of {ai_mult}.\n\n" + feedback
+
+    return feedback
+
+def percent_marked_2023_s2_a2_ed(O):
+    keys = [
+        "Task 1 - Tests",
+        "Task 2 - Approach",
+        "Task 2 - Tests",
+        "Task 2 - Complexity",
+        "Task 3 - Approach",
+        "Task 3 - Tests",
+        "Task 3 - Complexity",
+        "Task 4 - Approach",
+        "Task 4 - Tests",
+        "Task 4 - Complexity",
+        "Task 5 - Approach",
+        "Task 5 - Tests",
+        "Task 5 - Complexity",
+        "Task 6 - Approach",
+        "Task 6 - Tests",
+        "Task 6 - Complexity",
+        "Task 7 - Approach",
+        "Task 7 - Tests",
+    ]
+    non_zero_found = 0
+    for key in keys:
+        if O["ed"][key] not in [""]:
+            non_zero_found += 1
+    return non_zero_found / len(keys) * 100
+
+def gen_mark_2023_s2_a3(O):
+    t1_approach = float(O["ed"]["Task 1 - Approach (Max 12)"] or 0)
+    t1_tests = float(O["ed"]["Task 1 - Tests (Max 12)"] or 0)
+    t1_documentation = float(O["ed"]["Task 1 - Documentation (Max 6)"] or 0)
+    t2_approach = float(O["ed"]["Task 2 - Approach (Max 8)"] or 0)
+    t2_tests = float(O["ed"]["Task 2 - Tests (Max 6)"] or 0)
+    t2_documentation = float(O["ed"]["Task 2 - Documentation (Max 6)"] or 0)
+    penalty = float(O["ed"]["Formatting Penalty"] or 0)
+
+    code_mark = t1_approach+t1_tests+t1_documentation+t2_approach+t2_tests+t2_documentation+penalty
+    total = 50
+
+    return f"{min(100, 100*code_mark/total):.2f}"
+
+def gen_feedback_2023_s2_a3(O):
+    t1_approach = float(O["ed"]["Task 1 - Approach (Max 12)"] or 0)
+    t1_tests = float(O["ed"]["Task 1 - Tests (Max 12)"] or 0)
+    t1_documentation = float(O["ed"]["Task 1 - Documentation (Max 6)"] or 0)
+    t2_approach = float(O["ed"]["Task 2 - Approach (Max 8)"] or 0)
+    t2_tests = float(O["ed"]["Task 2 - Tests (Max 6)"] or 0)
+    t2_documentation = float(O["ed"]["Task 2 - Documentation (Max 6)"] or 0)
+    penalty = float(O["ed"]["Formatting Penalty"] or 0)
+
+    marker = O["info"]["Marker"]
+
+    total_mark = float(O["comp"]["Total Mark"])
+    submitted = O["ed"]["submitted"]
+    student_due_date = O["info"]["Due Date"]
+    final_mark = O["comp"]["actual_total_mark"]
+    feedback_text = O["ed"]["feedback_text"]
+    ai_mult = float(O["override"]["AI Mult"] or "1")
+
+    # This is out of 50, so scale to a percentage
+    late_penalty = float(O["comp"]["late_penalty"]) * 2
+
+    mark_string = f"{t1_approach}/12 + {t1_tests}/12 + {t1_documentation}/6 + {t2_approach}/8 + {t2_tests}/6 + {t2_documentation}/6"
+    if penalty:
+        mark_string = mark_string + f" {penalty}"
+
+    feedback = f"""\
+Marks: {mark_string} = {total_mark}%
+Your Marker was {marker}.
+You submitted on {submitted} with a due date of {student_due_date}, and so received a {late_penalty}% late penalty.
+So the final mark is {final_mark*2}% = {final_mark}/50
+
+Written Feedback: {feedback_text}
+"""
+
+    if ai_mult != 1:
+        feedback = f"Your submission received a multiplier of {ai_mult}.\n\n" + feedback
+
+    return feedback
+
+def percent_marked_2023_s2_a3_ed(O):
+    keys = [
+        "Task 1 - Approach (Max 12)",
+        "Task 1 - Tests (Max 12)",
+        "Task 1 - Documentation (Max 6)",
+        "Task 2 - Approach (Max 8)",
+        "Task 2 - Tests (Max 6)",
+        "Task 2 - Documentation (Max 6)",
+    ]
+    non_zero_found = 0
+    for key in keys:
+        if O["ed"][key] not in [""]:
+            non_zero_found += 1
+    return non_zero_found / len(keys) * 100
+
